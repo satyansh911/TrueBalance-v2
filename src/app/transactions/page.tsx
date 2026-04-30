@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { PlusCircle } from "lucide-react"
 import { TransactionForm } from "@/components/transactionForm"
-import { TransactionList } from "@/components/transactionList"
+import { TransactionList } from "@/components/transactionListEnhanced"
 import type { Transaction } from "@/types"
 
 export default function TransactionsPage() {
@@ -72,6 +72,8 @@ export default function TransactionsPage() {
 
       if (response.ok) {
         await fetchTransactions()
+      } else {
+        console.error("Failed to delete transaction")
       }
     } catch (error) {
       console.error("Error deleting transaction:", error)
